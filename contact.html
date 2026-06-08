@@ -1,0 +1,86 @@
+<!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-info">
+      <p class="section-label">Faites votre devis personnalisé</p>
+      <h2>Demandez votre devis gratuit personnalisé</h2>
+      <p>Si vous avez besoin d'un devis personnalisé, vous êtes au bon endroit. Remplissez simplement le formulaire ci-dessous et notre équipe dédiée vous fournira une offre compétitive et adaptée à vos besoins.</p>
+      <div class="contact-details">
+        <div class="contact-item"><strong>Email</strong> bonjour@groupe.aube</div>
+        <div class="contact-item"><strong>Téléphone</strong> +33 1 23 45 67 89</div>
+        <div class="contact-item"><strong>Adresse</strong> 7 Rue Gentilly 92120, Montrouge</div>
+      </div>
+    </div>
+    <!-- ⚠️ Remplacer VOTRE_EMAIL@GMAIL.COM par votre vraie adresse email -->
+    <form class="contact-form"
+          action="https://formsubmit.co/djeunyhean@gmail.com"
+          method="POST">
+
+      <!-- Options Formsubmit.co — pas besoin de compte, messages reçus par email -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Nouveau message — Lumière Studio">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Marie" required/>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" placeholder="Dupont" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required/>
+      </div>
+      <div class="form-group">
+        <label for="sujet">Sujet</label>
+        <select id="sujet" name="sujet" required>
+          <option value="">Sélectionner un sujet...</option>
+          <option>Nettoyage en profondeur</option>
+          <option>Désinfection</option>
+          <option>Debarras</option>
+          <option>Nettoyage de Sols, Tapis et de tissus d'ameublement</option>
+          <option>Autre demande</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Votre message</label>
+        <textarea id="message" name="message" placeholder="Décrivez votre projet en quelques mots..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Envoyer le message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Groupe<span>.</span>Aube</span>
+    <span>© 2024 Groupe Aube — Tous droits réservés</span>
+  </footer>
+
+  <!-- ================================
+       JAVASCRIPT — Boutons & Formulaire
+  ================================= -->
+  <script>
+
+    // ── Formulaire de contact → envoi via Formsubmit.co ──
+    // Le formulaire s'envoie normalement vers Formsubmit
+    // Pas de preventDefault ici — on laisse le navigateur envoyer
+
+    // ── Bouton "Nos Services" → scroll vers services ──
+    document.querySelectorAll('a[href="#services"]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // ── Bouton "Prendre contact" → scroll vers contact ──
+    document.querySelectorAll('a[href="#contact"]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        // Mettre le focus sur le premier champ
+        setTimeout(() => { document.getElementById('prenom').focus(); }, 600);
+      });
+    });

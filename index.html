@@ -1,13 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- TITRE & DESCRIPTION (SEO de base) -->
+  <title>Groupe Aube Propreté — Nettoyage professionnel à Montrouge & Paris</title>
+  <meta name="description" content="Groupe Aube Propreté : prestations de nettoyage professionnel, désinfection et entretien pour entreprises à Montrouge et Paris. Devis gratuit en 24h."/>
+
+  <!-- POLICE GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- FEUILLE DE STYLE EXTERNE (notre fichier CSS centralisé) -->
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <!-- Styles d'animation fade-in (légers, gardés ici pour clarté) -->
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-    <st class="set_page_config</st>
+
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <nav>
+    <!-- Logo -->
+    <a href="index.html" class="nav-logo">Groupe<span>.</span>Aube</a>
+
+    <!-- Bouton hamburger (visible uniquement sur mobile) -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Liens de navigation -->
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="about.html">Notre histoire</a></li>
+      <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
+    </ul>
+  </nav>
+
+  <!-- =============================================
+       HERO — Section d'accroche principale
+  ============================================= -->
+  <section class="hero" id="accueil">
+    <div class="hero-content fade-in">
+      <span class="hero-eyebrow">Agence de nettoyage — Montrouge & Paris</span>
+      <h1>Nous intervenons<br>dans vos <em>locaux</em><br>pour les illuminer</h1>
+      <p class="hero-desc">Nettoyage professionnel, désinfection et entretien multiservices. Réponse garantie en moins de 24 heures.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
+        <a href="#services" class="btn-secondary">Nos services →</a>
+      </div>
+    </div>
+
+    <!-- Image/visuel à droite -->
+    <div class="hero-image">
+      <!-- Badge flottant haut -->
+      <div class="hero-badge badge-top">
+        <div class="badge-value">24h</div>
+        <div class="badge-label">Réponse garantie</div>
+      </div>
+
+      <div class="image-box"></div>
+
+      <!-- Badge flottant bas -->
+      <div class="hero-badge badge-bottom">
+        <div class="badge-value">300+</div>
+        <div class="badge-label">Sites nettoyés</div>
+      </div>
+
+      <p class="image-caption">Nos interventions — Montrouge & Paris</p>
+    </div>
+  </section>
+
+  <!-- =============================================
+       BANDEAU DE CONFIANCE
+       (Conversion : rassure le visiteur immédiatement)
+  ============================================= -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <span class="trust-icon">✓</span>
+      Devis gratuit en 24h
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✓</span>
+      15 ans d'expérience
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✓</span>
+      98% clients satisfaits
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✓</span>
+      Intervention rapide
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✓</span>
+      Produits éco-certifiés
+    </div>
+  </div>
+
+  <!-- =============================================
+       SERVICES
+  ============================================= -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Ce que nous faisons</p>
+        <h2 class="section-title">Nos domaines<br>d'expertise</h2>
+      </div>
+      <p class="section-desc">Prestations de haute qualité réalisées par nos agents expérimentés, dans la région de Montrouge et certains quartiers de Paris.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-number">01</div>
+        <h3>Nettoyage en profondeur</h3>
+        <p>Désinfection intensive à l'aide de désinfectants enregistrés et autorisés en France. Nous intervenons rapidement et efficacement pour un résultat impeccable.</p>
+        <a href="#contact" class="service-link">Demander un devis →</a>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-number">02</div>
+        <h3>Désinfection & Débarras</h3>
+        <p>Un espace entièrement désinfecté, indispensable pour maintenir un environnement sain et productif. Prise en charge complète du débarras.</p>
+        <a href="#contact" class="service-link">Demander un devis →</a>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-number">03</div>
+        <h3>Nettoyage écologique</h3>
+        <p>Nos services de nettoyage éco-responsables minimisent l'impact environnemental sans sacrifier la qualité. Produits certifiés et méthodes durables.</p>
+        <a href="#contact" class="service-link">Demander un devis →</a>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-number">04</div>
+        <h3>Sols, Tapis & Ameublement</h3>
+        <p>Nos techniciens utilisent un processus en 4 étapes conçu pour différents types de sols, tapis et surfaces rembourrées. Résultats garantis.</p>
+        <a href="#contact" class="service-link">Demander un devis →</a>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-number">05</div>
+        <h3>Copropriété & Syndic</h3>
+        <p>Nettoyage régulier des parties communes : halls, escaliers, ascenseurs, caves, parkings. Contrats sur mesure adaptés aux syndics et gestionnaires.</p>
+        <a href="#contact" class="service-link">Demander un devis →</a>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-number">06</div>
+        <h3>Bureaux & Locaux pro</h3>
+        <p>Entretien régulier ou ponctuel de vos bureaux, open-spaces, salles de réunion et espaces communs. Planning adapté à vos horaires de travail.</p>
+        <a href="#contact" class="service-link">Demander un devis →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       À PROPOS — Résumé sur la page d'accueil
+  ============================================= -->
+  <section class="about" id="about">
+    <div class="about-image fade-in">
+      <div class="img-wrapper"></div>
+    </div>
+    <div class="about-text fade-in">
+      <span class="about-tag">Votre satisfaction, notre obsession.</span>
+      <h2>Une équipe passionnée au service de votre propreté</h2>
+      <p>En choisissant Groupe Aube, vous bénéficiez de prix compétitifs et d'une réponse rapide en moins de 24 heures. Qu'il s'agisse de bureaux, de locaux professionnels, d'appartements, d'immeubles résidentiels, d'espaces communs ou d'opérations de désinfection — faites appel à nous.</p>
+      <p>Votre satisfaction est notre priorité absolue. Nous sommes impatients de collaborer avec vous et de réaliser votre projet selon vos exigences.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-value">300+</div>
+          <div class="stat-label">Sites nettoyés</div>
+        </div>
+        <div>
+          <div class="stat-value">15 ans</div>
+          <div class="stat-label">D'expérience</div>
+        </div>
+        <div>
+          <div class="stat-value">98%</div>
+          <div class="stat-label">Clients satisfaits</div>
+        </div>
+      </div>
+      <div style="margin-top: 2rem;">
+        <a href="about.html" class="btn-secondary">Découvrir notre histoire →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       RÉASSURANCE — Bloc de conversion
+       (Pourquoi nous choisir ?)
+  ============================================= -->
+  <section class="reassurance">
+    <div class="section-header" style="color: var(--creme); margin-bottom: 3rem;">
+      <div>
+        <span class="section-label">Pourquoi nous choisir</span>
+        <h2 class="section-title">Nos engagements qualité</h2>
+      </div>
+    </div>
+    <div class="reassurance-grid">
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">⚡</span>
+        <h3>Réponse en 24h</h3>
+        <p>Chaque demande de devis reçoit une réponse personnalisée sous 24 heures ouvrées.</p>
+      </div>
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">🌿</span>
+        <h3>Éco-responsable</h3>
+        <p>Produits certifiés écologiques, méthodes respectueuses de l'environnement et des occupants.</p>
+      </div>
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">🛡️</span>
+        <h3>Agents certifiés</h3>
+        <p>Tous nos agents sont formés, assurés et expérimentés dans leurs domaines d'intervention.</p>
+      </div>
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">📋</span>
+        <h3>Contrats flexibles</h3>
+        <p>Interventions ponctuelles ou contrats récurrents, adaptés à votre planning et votre budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT — Formulaire de devis
+  ============================================= -->
+  <section class="contact" id="contact">
+    <div class="contact-info fade-in">
+      <p class="section-label">Faites votre devis personnalisé</p>
+      <h2>Demandez votre devis gratuit personnalisé</h2>
+      <p>Remplissez le formulaire ci-dessous et notre équipe vous fournira une offre compétitive et adaptée à vos besoins, sous 24 heures.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <strong>Email</strong>
+          bonjour@groupeaube.fr
+        </div>
+        <div class="contact-item">
+          <strong>Téléphone</strong>
+          +33 1 23 45 67 89
+        </div>
+        <div class="contact-item">
+          <strong>Adresse</strong>
+          7 Rue Gentilly, 92120 Montrouge
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form fade-in"
+          action="https://formsubmit.co/djeunyhean@gmail.com"
+          method="POST">
+
+      <!-- Options Formsubmit.co -->
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_subject" value="Nouveau devis — Groupe Aube Propreté"/>
+      <input type="hidden" name="_next" value="merci.html"/>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Marie" required/>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="nom" placeholder="Dupont" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Adresse e-mail *</label>
+        <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00"/>
+      </div>
+
+      <div class="form-group">
+        <label for="sujet">Type de prestation *</label>
+        <select id="sujet" name="sujet" required>
+          <option value="">Sélectionner une prestation...</option>
+          <option value="nettoyage-profondeur">Nettoyage en profondeur</option>
+          <option value="desinfection">Désinfection</option>
+          <option value="debarras">Débarras</option>
+          <option value="sols-tapis">Nettoyage de Sols, Tapis et Ameublement</option>
+          <option value="copropriete">Copropriété & Syndic</option>
+          <option value="bureaux">Bureaux & Locaux professionnels</option>
+          <option value="autre">Autre demande</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Décrivez votre besoin *</label>
+        <textarea id="message" name="message" placeholder="Superficie approximative, fréquence souhaitée, informations complémentaires..." required></textarea>
+      </div>
+
+      <!-- Case RGPD — obligatoire -->
+      <div class="rgpd-group">
+        <input type="checkbox" id="rgpd" name="rgpd" required/>
+        <label for="rgpd">
+          J'accepte que mes données soient utilisées pour traiter ma demande de devis, conformément à la
+          <a href="#">politique de confidentialité</a> de Groupe Aube Propreté. *
+        </label>
+      </div>
+
+      <button type="submit" class="btn-submit">Envoyer ma demande →</button>
+    </form>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <span class="footer-logo">Groupe<span>.</span>Aube</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#">Mentions légales</a></li>
+    </ul>
+    <span class="footer-copy">© 2024 Groupe Aube Propreté — Tous droits réservés</span>
+  </footer>
+
+  <!-- SCRIPT JAVASCRIPT EXTERNE -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 </html>
-
-
