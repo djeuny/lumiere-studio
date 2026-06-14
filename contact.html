@@ -1,86 +1,372 @@
-<!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-info">
-      <p class="section-label">Faites votre devis personnalisé</p>
-      <h2>Demandez votre devis gratuit personnalisé</h2>
-      <p>Si vous avez besoin d'un devis personnalisé, vous êtes au bon endroit. Remplissez simplement le formulaire ci-dessous et notre équipe dédiée vous fournira une offre compétitive et adaptée à vos besoins.</p>
-      <div class="contact-details">
-        <div class="contact-item"><strong>Email</strong> bonjour@groupe.aube</div>
-        <div class="contact-item"><strong>Téléphone</strong> +33 1 23 45 67 89</div>
-        <div class="contact-item"><strong>Adresse</strong> 7 Rue Gentilly 92120, Montrouge</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & Devis — Groupe Aube Propreté</title>
+  <meta name="description" content="Demandez votre devis gratuit à Groupe Aube Propreté. Réponse garantie sous 24h pour tous vos besoins de nettoyage professionnel."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Groupe Aube Propreté"/>
+  <meta property="og:title" content="Devis gratuit — Groupe Aube Propreté"/>
+  <meta property="og:description" content="Demandez votre devis gratuit. Réponse garantie sous 24h."/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://groupeaube.fr/contact.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">Groupe<span>.</span>Aube</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="contact.html" class="active nav-cta">Devis gratuit</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO CONTACT + FORMULAIRE -->
+  <section class="contact-page-hero">
+
+    <!-- Colonne gauche : infos -->
+    <div class="contact-page-hero-text fade-in">
+      <span class="page-hero-label">Contactez-nous</span>
+      <h1>Obtenez votre devis<br><em>gratuit</em> en 24h</h1>
+      <p>Remplissez le formulaire en 3 étapes simples. Notre équipe analyse votre demande et vous répond avec une offre personnalisée sous 24 heures ouvrées.</p>
+
+      <div class="hero-contact-details">
+        <div class="hero-contact-item">
+          <div class="hero-contact-icon">📧</div>
+          <div>
+            <strong>Email</strong>
+            bonjour@groupeaube.fr
+          </div>
+        </div>
+        <div class="hero-contact-item">
+          <div class="hero-contact-icon">📞</div>
+          <div>
+            <strong>Téléphone</strong>
+            +33 1 23 45 67 89
+          </div>
+        </div>
+        <div class="hero-contact-item">
+          <div class="hero-contact-icon">📍</div>
+          <div>
+            <strong>Adresse</strong>
+            7 Rue Gentilly, 92120 Montrouge
+          </div>
+        </div>
+        <div class="hero-contact-item">
+          <div class="hero-contact-icon">🕐</div>
+          <div>
+            <strong>Horaires</strong>
+            Lun–Ven : 8h00 – 18h00
+          </div>
+        </div>
       </div>
     </div>
-    <!-- ⚠️ Remplacer VOTRE_EMAIL@GMAIL.COM par votre vraie adresse email -->
-    <form class="contact-form"
-          action="https://formsubmit.co/djeunyhean@gmail.com"
-          method="POST">
 
-      <!-- Options Formsubmit.co — pas besoin de compte, messages reçus par email -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="Nouveau message — Lumière Studio">
+    <!-- Colonne droite : formulaire multi-étapes -->
+    <div class="contact-page-form-wrapper fade-in">
+      <h2>Votre demande de devis</h2>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="prenom">Prénom</label>
-          <input type="text" id="prenom" name="prenom" placeholder="Marie" required/>
+      <!-- Indicateur d'étapes -->
+      <div class="form-steps">
+        <div class="form-step active" id="step-indicator-1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Vos infos</span>
         </div>
-        <div class="form-group">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" placeholder="Dupont" required/>
+        <div class="form-step" id="step-indicator-2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Prestation</span>
+        </div>
+        <div class="form-step" id="step-indicator-3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Envoi</span>
         </div>
       </div>
-      <div class="form-group">
-        <label for="email">Adresse e-mail</label>
-        <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required/>
+
+      <!-- Formulaire -->
+      <form class="contact-form"
+            id="devis-form"
+            action="https://formsubmit.co/djeunyhean@gmail.com"
+            method="POST">
+
+        <!-- Options Formsubmit -->
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_subject" value="Nouveau devis — Groupe Aube Propreté"/>
+        <input type="hidden" name="_next" value="merci.html"/>
+
+        <!-- ÉTAPE 1 : Informations personnelles -->
+        <div class="form-panel active" id="panel-1">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prenom">Prénom *</label>
+              <input type="text" id="prenom" name="prenom" placeholder="Marie" required/>
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse e-mail *</label>
+            <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required/>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00"/>
+          </div>
+          <div class="form-group">
+            <label for="societe">Société / Organisation</label>
+            <input type="text" id="societe" name="societe" placeholder="Mon Entreprise SARL"/>
+          </div>
+          <div class="form-nav-btns">
+            <button type="button" class="btn-next" onclick="allerEtape(2)">
+              Étape suivante →
+            </button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 2 : Détails de la prestation -->
+        <div class="form-panel" id="panel-2">
+          <div class="form-group">
+            <label for="sujet">Type de prestation *</label>
+            <select id="sujet" name="sujet" required>
+              <option value="">Sélectionner une prestation...</option>
+              <option value="nettoyage-profondeur">Nettoyage en profondeur</option>
+              <option value="desinfection">Désinfection & Débarras</option>
+              <option value="ecologique">Nettoyage écologique</option>
+              <option value="sols-tapis">Sols, Tapis & Ameublement</option>
+              <option value="copropriete">Copropriété & Syndic</option>
+              <option value="bureaux">Bureaux & Locaux professionnels</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="superficie">Superficie approximative</label>
+            <select id="superficie" name="superficie">
+              <option value="">Sélectionner...</option>
+              <option value="moins-50">Moins de 50 m²</option>
+              <option value="50-200">50 à 200 m²</option>
+              <option value="200-500">200 à 500 m²</option>
+              <option value="plus-500">Plus de 500 m²</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="frequence">Fréquence souhaitée</label>
+            <select id="frequence" name="frequence">
+              <option value="">Sélectionner...</option>
+              <option value="ponctuel">Intervention ponctuelle</option>
+              <option value="hebdomadaire">Hebdomadaire</option>
+              <option value="mensuel">Mensuelle</option>
+              <option value="contrat">Contrat annuel</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Décrivez votre besoin *</label>
+            <textarea id="message" name="message"
+              placeholder="Informations complémentaires : type de locaux, contraintes horaires, besoins spécifiques..." required></textarea>
+          </div>
+          <div class="form-nav-btns">
+            <button type="button" class="btn-prev" onclick="allerEtape(1)">
+              ← Retour
+            </button>
+            <button type="button" class="btn-next" onclick="allerEtape(3)">
+              Étape suivante →
+            </button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 : Confirmation et envoi -->
+        <div class="form-panel" id="panel-3">
+          <p style="color: #6a8ab0; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.7;">
+            Vérifiez vos informations avant d'envoyer. Notre équipe vous contactera sous 24 heures ouvrées avec une offre personnalisée.
+          </p>
+
+          <!-- Récapitulatif dynamique -->
+          <div id="recap" style="background: #0a1e3d; border: 1px solid #1a3a6a; border-radius: 4px; padding: 1.2rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: #6a8ab0; display: flex; flex-direction: column; gap: 0.6rem;">
+          </div>
+
+          <!-- Case RGPD -->
+          <div class="rgpd-group">
+            <input type="checkbox" id="rgpd" name="rgpd" required/>
+            <label for="rgpd">
+              J'accepte que mes données soient utilisées pour traiter ma demande de devis, conformément à la
+              <a href="#">politique de confidentialité</a> de Groupe Aube Propreté. *
+            </label>
+          </div>
+
+          <div class="form-nav-btns">
+            <button type="button" class="btn-prev" onclick="allerEtape(2)">
+              ← Retour
+            </button>
+            <button type="submit" class="btn-submit">
+              Envoyer ma demande →
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- RÉASSURANCE -->
+  <section class="reassurance">
+    <div class="section-header" style="color: var(--creme); margin-bottom: 3rem;">
+      <div>
+        <span class="section-label">Nos engagements</span>
+        <h2 class="section-title">Pourquoi nous faire confiance</h2>
       </div>
-      <div class="form-group">
-        <label for="sujet">Sujet</label>
-        <select id="sujet" name="sujet" required>
-          <option value="">Sélectionner un sujet...</option>
-          <option>Nettoyage en profondeur</option>
-          <option>Désinfection</option>
-          <option>Debarras</option>
-          <option>Nettoyage de Sols, Tapis et de tissus d'ameublement</option>
-          <option>Autre demande</option>
-        </select>
+    </div>
+    <div class="reassurance-grid">
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">⚡</span>
+        <h3>Réponse en 24h</h3>
+        <p>Chaque demande reçoit une réponse personnalisée sous 24 heures ouvrées.</p>
       </div>
-      <div class="form-group">
-        <label for="message">Votre message</label>
-        <textarea id="message" name="message" placeholder="Décrivez votre projet en quelques mots..." required></textarea>
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">💰</span>
+        <h3>Devis 100% gratuit</h3>
+        <p>Notre devis est entièrement gratuit et sans engagement de votre part.</p>
       </div>
-      <button type="submit" class="btn-submit">Envoyer le message</button>
-    </form>
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">🛡️</span>
+        <h3>Agents assurés</h3>
+        <p>Tous nos agents sont formés, assurés et expérimentés.</p>
+      </div>
+      <div class="reassurance-item fade-in">
+        <span class="reassurance-icon">📋</span>
+        <h3>Sans engagement</h3>
+        <p>Pas de contrat forcé. Nous travaillons à votre rythme.</p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <span class="footer-logo">Groupe<span>.</span>Aube</span>
-    <span>© 2024 Groupe Aube — Tous droits réservés</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="mentions-legales.html">Mentions légales</a></li>
+    </ul>
+    <span class="footer-copy">© 2024 Groupe Aube Propreté — Tous droits réservés</span>
   </footer>
 
-  <!-- ================================
-       JAVASCRIPT — Boutons & Formulaire
-  ================================= -->
+  <script src="assets/js/main.js"></script>
   <script>
+    /* =============================================
+       FORMULAIRE MULTI-ÉTAPES
+       Gère la navigation entre les 3 panneaux
+    ============================================= */
 
-    // ── Formulaire de contact → envoi via Formsubmit.co ──
-    // Le formulaire s'envoie normalement vers Formsubmit
-    // Pas de preventDefault ici — on laisse le navigateur envoyer
+    /* Fonction principale : aller à une étape donnée */
+    function allerEtape(numeroEtape) {
 
-    // ── Bouton "Nos Services" → scroll vers services ──
-    document.querySelectorAll('a[href="#services"]').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+      /* 1. Valider l'étape actuelle avant d'avancer */
+      const etapeActuelle = document.querySelector('.form-panel.active');
+      if (numeroEtape > parseInt(etapeActuelle.id.replace('panel-', ''))) {
+        if (!validerEtape(etapeActuelle)) return;
+      }
+
+      /* 2. Cacher tous les panneaux */
+      document.querySelectorAll('.form-panel').forEach(function(panel) {
+        panel.classList.remove('active');
       });
-    });
 
-    // ── Bouton "Prendre contact" → scroll vers contact ──
-    document.querySelectorAll('a[href="#contact"]').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        // Mettre le focus sur le premier champ
-        setTimeout(() => { document.getElementById('prenom').focus(); }, 600);
+      /* 3. Afficher le panneau cible */
+      document.getElementById('panel-' + numeroEtape).classList.add('active');
+
+      /* 4. Mettre à jour les indicateurs d'étapes */
+      document.querySelectorAll('.form-step').forEach(function(step, index) {
+        step.classList.remove('active', 'done');
+        if (index + 1 < numeroEtape) step.classList.add('done');
+        if (index + 1 === numeroEtape) step.classList.add('active');
       });
-    });
+
+      /* 5. Si on arrive à l'étape 3, générer le récapitulatif */
+      if (numeroEtape === 3) {
+        genererRecap();
+      }
+    }
+
+    /* Valide les champs requis d'un panneau */
+    function validerEtape(panel) {
+      let valide = true;
+
+      /* Nettoyer les erreurs précédentes */
+      panel.querySelectorAll('.form-error').forEach(function(e) { e.remove(); });
+
+      /* Vérifier chaque champ requis dans ce panneau */
+      panel.querySelectorAll('[required]').forEach(function(champ) {
+        if (!champ.value.trim()) {
+          valide = false;
+          const erreur = document.createElement('span');
+          erreur.className = 'form-error';
+          erreur.textContent = 'Ce champ est obligatoire.';
+          erreur.style.cssText = 'color:#e05a5a; font-size:0.75rem; margin-top:0.3rem; display:block;';
+          champ.parentNode.appendChild(erreur);
+          champ.style.borderColor = '#e05a5a';
+          champ.addEventListener('input', function() {
+            champ.style.borderColor = '';
+            if (erreur.parentNode) erreur.remove();
+          }, { once: true });
+        }
+      });
+
+      /* Validation email spécifique */
+      const email = panel.querySelector('#email');
+      if (email && email.value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value.trim())) {
+          valide = false;
+          const erreur = document.createElement('span');
+          erreur.className = 'form-error';
+          erreur.textContent = 'Adresse email invalide.';
+          erreur.style.cssText = 'color:#e05a5a; font-size:0.75rem; margin-top:0.3rem; display:block;';
+          email.parentNode.appendChild(erreur);
+          email.style.borderColor = '#e05a5a';
+        }
+      }
+
+      return valide;
+    }
+
+    /* Génère le récapitulatif à l'étape 3 */
+    function genererRecap() {
+      const recap = document.getElementById('recap');
+      const prenom = document.getElementById('prenom').value;
+      const nom = document.getElementById('nom').value;
+      const email = document.getElementById('email').value;
+      const sujet = document.getElementById('sujet');
+      const sujetTexte = sujet.options[sujet.selectedIndex].text;
+
+      recap.innerHTML = `
+        <div>👤 <strong style="color:var(--or)">Contact :</strong> ${prenom} ${nom}</div>
+        <div>📧 <strong style="color:var(--or)">Email :</strong> ${email}</div>
+        <div>🧹 <strong style="color:var(--or)">Prestation :</strong> ${sujetTexte || 'Non renseignée'}</div>
+      `;
+    }
+  </script>
+
+</body>
+</html>

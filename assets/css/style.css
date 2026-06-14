@@ -1228,3 +1228,419 @@ footer {
   .services-page-grid { grid-template-columns: 1fr; }
   .cta-section { padding: 4rem 1.5rem; }
 }
+/* ============================================================
+   STYLES PAGE CONTACT & MERCI
+   Ajouté Jour 3
+   ============================================================ */
+
+/* ── Page contact hero spécifique ── */
+.contact-page-hero {
+  padding: 10rem 4rem 5rem;
+  background: var(--noir);
+  color: var(--creme);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contact-page-hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(91,163,217,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-page-hero-text { position: relative; z-index: 1; }
+
+.contact-page-hero-text .page-hero-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.contact-page-hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: var(--creme);
+}
+
+.contact-page-hero-text h1 em {
+  font-style: italic;
+  color: var(--or);
+}
+
+.contact-page-hero-text p {
+  color: #6a8ab0;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Infos de contact dans le hero */
+.hero-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #1a3a6a;
+}
+
+.hero-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #6a8ab0;
+  font-size: 0.9rem;
+}
+
+.hero-contact-icon {
+  width: 36px; height: 36px;
+  background: #0f2040;
+  border: 1px solid #1a3a6a;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.hero-contact-item strong {
+  display: block;
+  color: var(--or);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+
+/* Formulaire dans le hero contact */
+.contact-page-form-wrapper {
+  position: relative;
+  z-index: 1;
+  background: rgba(15, 32, 64, 0.6);
+  border: 1px solid #1a3a6a;
+  border-radius: 4px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.contact-page-form-wrapper h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--creme);
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #1a3a6a;
+}
+
+/* ── Étapes du formulaire (indicateur de progression) ── */
+.form-steps {
+  display: flex;
+  gap: 0;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.form-steps::before {
+  content: '';
+  position: absolute;
+  top: 14px; left: 14px; right: 14px;
+  height: 1px;
+  background: #1a3a6a;
+  z-index: 0;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #0f2040;
+  border: 1px solid #1a3a6a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #4a6080;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.form-step.active .step-circle {
+  background: var(--or);
+  border-color: var(--or);
+  color: var(--noir);
+}
+
+.form-step.done .step-circle {
+  background: #1a4a8a;
+  border-color: var(--or);
+  color: var(--or);
+}
+
+.step-label {
+  font-size: 0.65rem;
+  color: #4a6080;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.form-step.active .step-label { color: var(--or); }
+
+/* Panneau de chaque étape */
+.form-panel { display: none; }
+.form-panel.active { display: block; }
+
+/* Boutons navigation formulaire */
+.form-nav-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.btn-next, .btn-prev {
+  padding: 0.85rem 1.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-next {
+  background: var(--or);
+  color: var(--noir);
+  margin-left: auto;
+}
+
+.btn-next:hover { background: var(--or-clair); transform: translateY(-2px); }
+
+.btn-prev {
+  background: transparent;
+  color: #6a8ab0;
+  border: 1px solid #1a3a6a;
+}
+
+.btn-prev:hover { border-color: var(--or); color: var(--or); }
+
+/* ── Page Merci ── */
+.merci-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--creme);
+  padding: 8rem 4rem;
+  text-align: center;
+}
+
+.merci-content {
+  max-width: 600px;
+}
+
+.merci-icon {
+  width: 80px; height: 80px;
+  background: var(--bleu);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 2rem;
+}
+
+.merci-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--noir);
+  margin-bottom: 1rem;
+}
+
+.merci-content h1 em { color: var(--or); font-style: italic; }
+
+.merci-content p {
+  color: var(--gris);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.merci-details {
+  background: var(--blanc);
+  border: 1px solid rgba(91,163,217,0.15);
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.merci-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+  color: var(--gris);
+}
+
+.merci-detail-item span:first-child { color: var(--or); font-size: 1rem; }
+
+/* ── Responsive Jour 3 ── */
+/* ========================
+   RESPONSIVE COMPLET — Mobile First
+   Tout ce qui concerne les écrans < 900px
+======================== */
+@media (max-width: 900px) {
+
+  /* ── Navigation ── */
+  nav { padding: 1rem 1.5rem; }
+  nav.scrolled { padding: 0.8rem 1.5rem; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(238, 243, 250, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(91,163,217,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+
+  /* ── Hero accueil ── */
+  .hero {
+    flex-direction: column;
+    padding: 6rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .hero-content { max-width: 100%; }
+
+  .hero-image {
+    position: relative;
+    right: auto; top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .hero-badge.badge-top { top: 1rem; left: 0; }
+  .hero-badge.badge-bottom { bottom: 1rem; left: 0; }
+
+  /* ── Trust bar ── */
+  .trust-bar {
+    padding: 1.2rem 1.5rem;
+    gap: 1rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .trust-item { flex-shrink: 0; }
+
+  /* ── Services accueil ── */
+  .services { padding: 4rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; gap: 1px; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .section-desc { max-width: 100%; }
+
+  /* ── About accueil ── */
+  .about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+  .about-stats { gap: 1.5rem; flex-wrap: wrap; }
+
+  /* ── Réassurance ── */
+  .reassurance { padding: 3rem 1.5rem; }
+  .reassurance-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+  /* ── Contact accueil ── */
+  .contact { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+
+  /* ── Footer ── */
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+  }
+  .footer-copy { text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+
+  /* ── Pages intérieures ── */
+  .page-hero { padding: 7rem 1.5rem 4rem; }
+
+  .histoire { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+  .histoire-image .img-accent { display: none; }
+
+  .valeurs { padding: 4rem 1.5rem; }
+  .valeurs-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+  .equipe { padding: 4rem 1.5rem; }
+  .equipe-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+  .chiffres { padding: 3rem 1.5rem; }
+  .chiffres-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+  .services-page { padding: 4rem 1.5rem; }
+  .services-page-grid { grid-template-columns: 1fr; }
+
+  .cta-section { padding: 4rem 1.5rem; }
+
+  /* ── Contact page ── */
+  .contact-page-hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .contact-page-form-wrapper { padding: 1.5rem; }
+  .step-label { font-size: 0.55rem; }
+
+  /* ── Merci page ── */
+  .merci-section { padding: 6rem 1.5rem; }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+  .reassurance-grid { grid-template-columns: 1fr; }
+  .equipe-grid { grid-template-columns: 1fr; }
+  .chiffres-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+}
