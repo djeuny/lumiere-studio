@@ -1644,3 +1644,565 @@ footer {
   .chiffres-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-btns { flex-direction: column; align-items: flex-start; }
 }
+
+/* ============================================================
+   STYLES PAGE DEVIS-PRO — Thème immersif bleu nuit
+   Ajouté Jour 5
+   ============================================================ */
+
+/* ── Variables supplémentaires thème nuit ── */
+:root {
+  --nuit:        #050d1a;
+  --nuit-clair:  #0a1628;
+  --nuit-accent: #0d2145;
+  --etoile:      #7ab8e8;
+  --vert-ok:     #2ecc71;
+}
+
+/* ── Navigation thème nuit ── */
+.nav-nuit {
+  background: rgba(5, 13, 26, 0.95) !important;
+  border-bottom: 1px solid rgba(91,163,217,0.15) !important;
+}
+
+.nav-nuit .nav-logo { color: var(--creme) !important; }
+.nav-nuit .nav-links a { color: rgba(238,243,250,0.6) !important; }
+.nav-nuit .nav-links a:hover { color: var(--or) !important; }
+.nav-nuit .nav-toggle span { background: var(--creme) !important; }
+
+/* ── Hero immersif ── */
+.hero-nuit {
+  min-height: 100vh;
+  background: var(--nuit);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 4rem 4rem;
+}
+
+/* Étoiles animées en arrière-plan */
+.hero-nuit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(122,184,232,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 60%, rgba(122,184,232,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 15%, rgba(238,243,250,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 80%, rgba(122,184,232,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 35%, rgba(238,243,250,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 65%, rgba(122,184,232,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 10%, rgba(238,243,250,0.7) 0%, transparent 100%),
+    radial-gradient(2px 2px at 15% 85%, rgba(91,163,217,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 60% 50%, rgba(91,163,217,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 90%, rgba(238,243,250,0.5) 0%, transparent 100%);
+  animation: scintiller 6s ease-in-out infinite alternate;
+}
+
+@keyframes scintiller {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.02); }
+}
+
+/* Halo central */
+.hero-nuit::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(91,163,217,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-nuit-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-nuit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(91,163,217,0.1);
+  border: 1px solid rgba(91,163,217,0.3);
+  color: var(--or);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+}
+
+.hero-nuit h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.1;
+  color: var(--creme);
+  margin-bottom: 1.5rem;
+}
+
+.hero-nuit h1 em {
+  font-style: italic;
+  color: var(--or);
+  display: block;
+}
+
+.hero-nuit p {
+  color: rgba(238,243,250,0.6);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.hero-nuit-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(91,163,217,0.15);
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--or);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.hero-stat-label {
+  font-size: 0.75rem;
+  color: rgba(238,243,250,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Calculateur de prix ── */
+.calculateur {
+  background: var(--nuit);
+  padding: 7rem 4rem;
+  color: var(--creme);
+}
+
+.calculateur-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.calculateur-form-side { }
+
+.calculateur-result-side {
+  position: sticky;
+  top: 100px;
+}
+
+.calc-result-card {
+  background: var(--nuit-accent);
+  border: 1px solid rgba(91,163,217,0.2);
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.calc-result-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: rgba(238,243,250,0.6);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.prix-estime {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--or);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s ease;
+}
+
+.prix-periode {
+  font-size: 0.85rem;
+  color: rgba(238,243,250,0.4);
+  margin-bottom: 2rem;
+}
+
+.prix-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  text-align: left;
+  border-top: 1px solid rgba(91,163,217,0.15);
+  padding-top: 1.5rem;
+}
+
+.prix-detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: rgba(238,243,250,0.5);
+}
+
+.prix-detail-item span:last-child { color: var(--creme); }
+
+.calc-disclaimer {
+  font-size: 0.72rem;
+  color: rgba(238,243,250,0.3);
+  line-height: 1.5;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(91,163,217,0.1);
+}
+
+/* Options du calculateur */
+.calc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.calc-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(238,243,250,0.5);
+  margin-bottom: 0.8rem;
+}
+
+.calc-group-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--creme);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Boutons de sélection (radio stylés) */
+.option-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.option-btn {
+  padding: 0.6rem 1.2rem;
+  background: var(--nuit-accent);
+  border: 1px solid rgba(91,163,217,0.2);
+  border-radius: 4px;
+  color: rgba(238,243,250,0.6);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.option-btn:hover {
+  border-color: var(--or);
+  color: var(--or);
+}
+
+.option-btn.selected {
+  background: rgba(91,163,217,0.15);
+  border-color: var(--or);
+  color: var(--or);
+}
+
+/* Slider superficie */
+.superficie-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 3px;
+  background: rgba(91,163,217,0.2);
+  border-radius: 2px;
+  outline: none;
+  margin: 1rem 0;
+}
+
+.superficie-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--or);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(91,163,217,0.4);
+}
+
+.superficie-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--or);
+  font-weight: 700;
+}
+
+/* ── Section Galerie avant/après ── */
+.galerie {
+  background: var(--nuit-clair);
+  padding: 7rem 4rem;
+  color: var(--creme);
+}
+
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.galerie-item {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.galerie-before-after {
+  position: relative;
+  width: 100%;
+  padding-bottom: 70%;
+  overflow: hidden;
+}
+
+.galerie-img {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.5s;
+}
+
+.galerie-img.avant {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: rgba(238,243,250,0.3);
+}
+
+.galerie-img.apres {
+  background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+  color: rgba(238,243,250,0.6);
+  opacity: 0;
+}
+
+.galerie-item:hover .galerie-img.avant { opacity: 0; }
+.galerie-item:hover .galerie-img.apres { opacity: 1; }
+
+.galerie-label {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: rgba(5,13,26,0.8);
+  color: var(--or);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  z-index: 2;
+  transition: opacity 0.3s;
+}
+
+.galerie-label-apres {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: rgba(91,163,217,0.2);
+  color: var(--creme);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.galerie-item:hover .galerie-label { opacity: 0; }
+.galerie-item:hover .galerie-label-apres { opacity: 1; }
+
+.galerie-info {
+  padding: 1.2rem;
+  background: var(--nuit-accent);
+}
+
+.galerie-info h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.galerie-info p {
+  font-size: 0.8rem;
+  color: rgba(238,243,250,0.4);
+}
+
+/* ── Système de RDV ── */
+.rdv-section {
+  background: var(--nuit);
+  padding: 7rem 4rem;
+  color: var(--creme);
+}
+
+.rdv-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.rdv-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.rdv-info p {
+  color: rgba(238,243,250,0.5);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.rdv-avantages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rdv-avantage {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: rgba(238,243,250,0.6);
+}
+
+.rdv-avantage-icon {
+  width: 32px; height: 32px;
+  background: rgba(91,163,217,0.1);
+  border: 1px solid rgba(91,163,217,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Calendrier de RDV */
+.rdv-form {
+  background: var(--nuit-accent);
+  border: 1px solid rgba(91,163,217,0.15);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+.rdv-form h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(91,163,217,0.15);
+}
+
+/* Créneaux horaires */
+.creneaux-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.creneau-btn {
+  padding: 0.6rem;
+  background: var(--nuit);
+  border: 1px solid rgba(91,163,217,0.15);
+  border-radius: 4px;
+  color: rgba(238,243,250,0.5);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+}
+
+.creneau-btn:hover {
+  border-color: var(--or);
+  color: var(--or);
+}
+
+.creneau-btn.selected {
+  background: rgba(91,163,217,0.15);
+  border-color: var(--or);
+  color: var(--or);
+}
+
+.creneau-btn.indisponible {
+  opacity: 0.3;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Champs nuit */
+.form-nuit .form-group label {
+  color: rgba(238,243,250,0.4);
+}
+
+.form-nuit .form-group input,
+.form-nuit .form-group select,
+.form-nuit .form-group textarea {
+  background: var(--nuit);
+  border: 1px solid rgba(91,163,217,0.15);
+  color: var(--creme);
+}
+
+.form-nuit .form-group input:focus,
+.form-nuit .form-group select:focus,
+.form-nuit .form-group textarea:focus {
+  border-color: var(--or);
+}
+
+.form-nuit .form-group input::placeholder,
+.form-nuit .form-group textarea::placeholder {
+  color: rgba(238,243,250,0.2);
+}
+
+/* ── Responsive Jour 5 ── */
+@media (max-width: 900px) {
+  .hero-nuit { padding: 6rem 1.5rem 3rem; }
+  .hero-nuit-stats { gap: 1.5rem; }
+  .calculateur { padding: 4rem 1.5rem; }
+  .calculateur-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+  .calculateur-result-side { position: relative; top: 0; }
+  .galerie { padding: 4rem 1.5rem; }
+  .galerie-grid { grid-template-columns: 1fr; }
+  .rdv-section { padding: 4rem 1.5rem; }
+  .rdv-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+  .creneaux-grid { grid-template-columns: repeat(2, 1fr); }
+}
