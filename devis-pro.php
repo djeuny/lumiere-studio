@@ -505,7 +505,7 @@
 
     try {
       /* Envoi vers notre script PHP */
-      const response = await fetch('actions/save_devis.php', {
+      const response = await fetch('/groupe-aube/actions/save_devis.php', {
         method: 'POST',
         body: formData
       });
