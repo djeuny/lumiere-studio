@@ -148,3 +148,49 @@ const observer = new IntersectionObserver(function (entries) {
 document.querySelectorAll('.fade-in').forEach(function (el) {
   observer.observe(el);
 });
+
+/* ========================
+   JOUR 7 — FAQ Interactive
+   Chaque question s'ouvre/ferme au clic
+======================== */
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const answer = this.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+
+    // Fermer toutes les réponses ouvertes
+    document.querySelectorAll('.faq-answer').forEach(function(a) {
+      a.classList.remove('open');
+    });
+    document.querySelectorAll('.faq-question').forEach(function(q) {
+      q.classList.remove('active');
+    });
+
+    // Si la question cliquée était fermée, on l'ouvre
+    if (!isOpen) {
+      answer.classList.add('open');
+      this.classList.add('active');
+    }
+  });
+});
+
+/* ========================
+   JOUR 7 — Bouton retour en haut
+   Apparaît après 400px de scroll
+======================== */
+const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+if (scrollTopBtn) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}

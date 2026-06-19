@@ -529,6 +529,6 @@
     }
   });
   </script>
-
+<button class="scroll-top-btn" aria-label="Retour en haut">↑</button>
 </body>
 </html>

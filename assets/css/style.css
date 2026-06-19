@@ -2206,3 +2206,234 @@ footer {
   .rdv-wrapper { grid-template-columns: 1fr; gap: 2rem; }
   .creneaux-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ============================================================
+   STYLES JOUR 7 — FAQ + Bouton retour haut + Témoignages
+   ============================================================ */
+
+/* ── FAQ Interactive ── */
+.faq-section {
+  padding: 7rem 4rem;
+  background: var(--creme);
+}
+
+.faq-section .section-header {
+  margin-bottom: 3rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(91,163,217,0.15);
+  overflow: hidden;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(91,163,217,0.15);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--noir);
+  transition: color 0.3s;
+  gap: 1rem;
+}
+
+.faq-question:hover { color: var(--or); }
+
+.faq-question.active { color: var(--bleu); }
+
+.faq-icon {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(91,163,217,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--or);
+  flex-shrink: 0;
+  transition: transform 0.3s, background 0.3s;
+  line-height: 1;
+}
+
+.faq-question.active .faq-icon {
+  transform: rotate(45deg);
+  background: var(--or);
+  color: var(--noir);
+  border-color: var(--or);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+}
+
+.faq-answer-inner {
+  padding: 0 0 1.5rem 0;
+  color: var(--gris);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ── Témoignages clients ── */
+.temoignages {
+  padding: 7rem 4rem;
+  background: var(--noir);
+  color: var(--creme);
+}
+
+.temoignages-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.temoignages-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 0.8rem;
+}
+
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.temoignage-card {
+  background: #0a1e3d;
+  border: 1px solid rgba(91,163,217,0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+}
+
+.temoignage-card:hover {
+  border-color: var(--or);
+  transform: translateY(-4px);
+}
+
+.temoignage-quote {
+  font-size: 3rem;
+  color: var(--or);
+  opacity: 0.3;
+  font-family: 'Playfair Display', serif;
+  line-height: 0.8;
+  margin-bottom: 1rem;
+}
+
+.temoignage-texte {
+  font-size: 0.92rem;
+  color: rgba(238,243,250,0.6);
+  line-height: 1.8;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.temoignage-auteur {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(91,163,217,0.1);
+}
+
+.temoignage-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--creme);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.temoignage-nom {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--creme);
+}
+
+.temoignage-poste {
+  font-size: 0.75rem;
+  color: rgba(238,243,250,0.3);
+}
+
+.temoignage-etoiles {
+  color: var(--or);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Bouton retour en haut ── */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px; height: 46px;
+  background: var(--noir);
+  color: var(--creme);
+  border: 1px solid rgba(91,163,217,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  z-index: 99;
+  text-decoration: none;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.scroll-top-btn:hover {
+  background: var(--or);
+  color: var(--noir);
+  border-color: var(--or);
+  transform: translateY(-3px);
+}
+
+/* ── Responsive Jour 7 ── */
+@media (max-width: 900px) {
+  .faq-section { padding: 4rem 1.5rem; }
+  .temoignages { padding: 4rem 1.5rem; }
+  .temoignages-grid { grid-template-columns: 1fr; }
+  .scroll-top-btn { bottom: 1.5rem; right: 1.5rem; }
+}

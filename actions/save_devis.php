@@ -44,7 +44,6 @@ if (empty($prenom))          $erreurs[] = 'Le prénom est obligatoire.';
 if (empty($nom))             $erreurs[] = 'Le nom est obligatoire.';
 if (empty($email))           $erreurs[] = "L'email est obligatoire.";
 if (empty($type_prestation)) $erreurs[] = 'Le type de prestation est obligatoire.';
-if (empty($message))         $erreurs[] = 'Le message est obligatoire.';
 
 // Validation format email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
