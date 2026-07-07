@@ -2437,3 +2437,79 @@ footer {
   .temoignages-grid { grid-template-columns: 1fr; }
   .scroll-top-btn { bottom: 1.5rem; right: 1.5rem; }
 }
+/* ============================================================
+   STYLES JOUR 8 — Pages Inscription / Connexion
+   ============================================================ */
+.auth-body {
+  background: var(--nuit);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-wrapper { width: 100%; max-width: 460px; }
+
+.auth-logo { text-align: center; margin-bottom: 2.5rem; }
+.auth-logo .nav-logo { font-size: 1.8rem; }
+
+.auth-card {
+  background: var(--nuit-accent);
+  border: 1px solid rgba(91,163,217,0.15);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+.auth-card h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--creme);
+  margin-bottom: 0.5rem;
+}
+
+.auth-card p {
+  color: rgba(238,243,250,0.4);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(238,243,250,0.3) !important;
+}
+
+.auth-switch a { color: var(--or); text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* Bandeau "vous avez un devis en attente de compte" */
+.devis-cta-banner {
+  background: rgba(91,163,217,0.08);
+  border: 1px solid rgba(91,163,217,0.2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.devis-cta-banner-text h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--creme);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.devis-cta-banner-text p {
+  color: rgba(238,243,250,0.5);
+  font-size: 0.85rem;
+}
+
+.devis-cta-banner .btn-primary {
+  white-space: nowrap;
+}

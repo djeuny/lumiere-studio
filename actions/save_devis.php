@@ -11,6 +11,7 @@ header('Access-Control-Allow-Origin: *');
 
 // On inclut notre fichier de connexion
 require_once '../config/database.php';
+session_start();
 
 /* ── 1. Vérifier que c'est bien une requête POST ── */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -67,18 +68,29 @@ try {
              superficie, frequence, message, date_rdv, heure_rdv) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
+// Si le visiteur est déjà connecté, on récupère son ID
+    $client_id = $_SESSION['client_id'] ?? null;
+
+    $sql = "INSERT INTO devis 
+            (client_id, prenom, nom, email, telephone, societe, type_prestation, 
+             superficie, frequence, message, date_rdv, heure_rdv) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     $stmt = $pdo->prepare($sql);
     
-    // On exécute avec les vraies valeurs
     $stmt->execute([
-        $prenom, $nom, $email, $telephone, $societe,
+        $client_id, $prenom, $nom, $email, $telephone, $societe,
         $type_prestation, $superficie, $frequence, $message,
-        $date_rdv ?: null,   // Si vide, on met NULL en BDD
+        $date_rdv ?: null,
         $heure_rdv ?: null
     ]);
     
     // Récupérer l'ID du devis créé
     $devis_id = $pdo->lastInsertId();
+
+    // On mémorise l'ID du devis en session pour pouvoir le relier
+    // si le visiteur crée un compte juste après
+    $_SESSION['dernier_devis_id'] = $devis_id;
     
     // Succès !
     echo json_encode([
