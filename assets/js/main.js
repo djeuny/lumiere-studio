@@ -194,3 +194,31 @@ if (scrollTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+/* ========================
+   JOUR 9 — Bannière cookies RGPD
+======================== */
+function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+
+  // Vérifier si le choix a déjà été fait
+  const choix = localStorage.getItem('cookie_consent');
+  if (!choix) {
+    // Afficher la bannière après 1 seconde
+    setTimeout(() => banner.classList.add('visible'), 1000);
+  }
+}
+
+function accepterCookies() {
+  localStorage.setItem('cookie_consent', 'accepted');
+  document.getElementById('cookie-banner').classList.remove('visible');
+}
+
+function refuserCookies() {
+  localStorage.setItem('cookie_consent', 'refused');
+  document.getElementById('cookie-banner').classList.remove('visible');
+}
+
+// Initialiser au chargement
+document.addEventListener('DOMContentLoaded', initCookieBanner);

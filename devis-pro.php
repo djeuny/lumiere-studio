@@ -27,6 +27,7 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">À propos</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="connexion.php">Mon espace</a></li>
       <li><a href="devis-pro.php" class="active nav-cta">Devis Pro</a></li>
     </ul>
   </nav>
@@ -530,5 +531,19 @@
   });
   </script>
 <button class="scroll-top-btn" aria-label="Retour en haut">↑</button>
+<!-- BANNIÈRE COOKIES RGPD -->
+<div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-banner-text">
+    <p>
+      🍪 Nous utilisons des cookies techniques essentiels au fonctionnement du site.
+      Aucun cookie publicitaire ou de traçage n'est utilisé.
+      <a href="politique-confidentialite.html">En savoir plus</a>
+    </p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-refuse" onclick="refuserCookies()">Continuer sans accepter</button>
+    <button class="cookie-btn-accept" onclick="accepterCookies()">J'accepte</button>
+  </div>
+</div>
 </body>
 </html>
