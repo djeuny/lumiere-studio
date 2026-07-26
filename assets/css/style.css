@@ -2603,3 +2603,10 @@ footer {
   .cookie-btn-accept,
   .cookie-btn-refuse { flex: 1; text-align: center; }
 }
+
+/* Fix dashboard client */
+.dash-body {
+  background: #070f1f;
+  min-height: 100vh;
+  color: var(--creme);
+}
